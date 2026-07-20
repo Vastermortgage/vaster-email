@@ -1,6 +1,6 @@
 {
   "name": "@vastermortgage/email",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared transactional email templates for Vaster applications",
   "type": "module",
   "packageManager": "bun@1.4.0",
@@ -16,11 +16,11 @@
   "scripts": {
     "dev": "email dev --dir ./emails --port 3001",
     "build": "bun run build:js && bun run build:types",
-    "build:js": "bun build ./src/index.ts --outdir ./dist --target node --format esm --external react --external react-dom --external react-email",
+    "build:js": "bun build ./src/index.ts --outdir ./dist --target node --format esm --external react --external react-dom --external react-email --production",
     "build:types": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.json --noEmit",
     "prepack": "bun run build",
-    "test": "bun test"
+    "test": "bun run build && bun test ./test"
   },
   "dependencies": {
     "react-email": "6.0.5"
