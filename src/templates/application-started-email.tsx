@@ -1,6 +1,6 @@
 import { Button, Heading, Hr, Link, Row, Section, Text } from 'react-email'
 
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 
 export interface ApplicationStartedEmailProps {
   uuid: string
@@ -35,7 +35,7 @@ export function ApplicationStartedEmail(props: ApplicationStartedEmailProps) {
       : null
 
   return (
-    <NotificationLayout preview={previewText}>
+    <InternalNotificationLayout preview={previewText}>
       <Text className="mt-0 mb-[8px] text-[12px] leading-[16px] font-semibold tracking-[0.08em] text-[#002F87] uppercase">
         New application
       </Text>
@@ -107,7 +107,7 @@ export function ApplicationStartedEmail(props: ApplicationStartedEmailProps) {
           )}
         </Text>
       )}
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

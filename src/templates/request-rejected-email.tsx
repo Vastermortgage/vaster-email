@@ -1,5 +1,5 @@
 import { DangerCallout, EmailEyebrow } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 import { RequestDecisionContent } from '../components/request-decision-content'
 import type { RequestDecisionEmailProps } from '../types'
 
@@ -7,7 +7,7 @@ export type RequestRejectedEmailProps = RequestDecisionEmailProps
 
 export function RequestRejectedEmail(props: RequestRejectedEmailProps) {
   return (
-    <NotificationLayout preview={`${props.requestTitle} was not approved`}>
+    <InternalNotificationLayout preview={`${props.requestTitle} was not approved`}>
       <EmailEyebrow>Not approved</EmailEyebrow>
       <RequestDecisionContent
         {...props}
@@ -16,7 +16,7 @@ export function RequestRejectedEmail(props: RequestRejectedEmailProps) {
       >
         <DangerCallout>Your request was not approved.</DangerCallout>
       </RequestDecisionContent>
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

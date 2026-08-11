@@ -1,6 +1,6 @@
 {
   "name": "@vastermortgage/email",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Shared transactional email templates for Vaster applications",
   "type": "module",
   "packageManager": "bun@1.4.0",

@@ -7,7 +7,7 @@ import {
   EmailParagraph,
   InfoCallout,
 } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 import type { EmailDetail } from '../types'
 
 export interface FeedbackReceivedEmailProps {
@@ -53,7 +53,7 @@ export function FeedbackReceivedEmail({
   ]
 
   return (
-    <NotificationLayout preview={`${severity} ${category} feedback received in ${appName}`}>
+    <InternalNotificationLayout preview={`${severity} ${category} feedback received in ${appName}`}>
       <EmailEyebrow>Product feedback</EmailEyebrow>
       <EmailHeading>New feedback from {appName}</EmailHeading>
       <InfoCallout>
@@ -77,7 +77,7 @@ export function FeedbackReceivedEmail({
         </>
       )}
       {reportUrl && <EmailAction href={reportUrl}>Open feedback report</EmailAction>}
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

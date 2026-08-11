@@ -1,12 +1,12 @@
 import {
   EmailAction,
   EmailDetails,
-  EmailEyebrow,
   EmailHeading,
   EmailLinkFallback,
   EmailParagraph,
+  PendingCallout,
 } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 import type { EmailDetail } from '../types'
 
 export interface ApprovalRequestEmailProps {
@@ -26,27 +26,37 @@ export function ApprovalRequestEmail({
   summary,
   details = [],
   reviewUrl,
-  actionLabel = 'Review request',
+  actionLabel,
 }: ApprovalRequestEmailProps) {
+  const isExpense = requestType?.toLowerCase().includes('expense') ?? false
+  const resolvedActionLabel = actionLabel ?? (isExpense ? 'Review expense' : 'Review request')
+
   return (
-    <NotificationLayout preview={`${requestTitle} is awaiting your review`}>
-      <EmailEyebrow>Action required</EmailEyebrow>
-      <EmailHeading>{requestTitle} is awaiting review</EmailHeading>
-      <EmailParagraph>
-        <strong>{requesterName}</strong> submitted {requestType ? `a ${requestType}` : 'a request'} that needs your
-        attention.
-      </EmailParagraph>
+    <InternalNotificationLayout preview={`${requestTitle} is awaiting your review`}>
+      <PendingCallout>{isExpense ? 'Pending expense approval' : 'Pending approval'}</PendingCallout>
+      <EmailHeading>
+        {isExpense ? 'Expense submission needs your review' : `${requestTitle} needs your review`}
+      </EmailHeading>
+      {isExpense ? (
+        <EmailParagraph>
+          <strong>{requesterName}</strong> submitted <strong>{requestTitle}</strong>.
+        </EmailParagraph>
+      ) : (
+        <EmailParagraph>
+          <strong>{requesterName}</strong> submitted {requestType ? `a ${requestType}` : 'a request'}.
+        </EmailParagraph>
+      )}
       {summary && <EmailParagraph>{summary}</EmailParagraph>}
       <EmailDetails items={details} />
-      <EmailAction href={reviewUrl}>{actionLabel}</EmailAction>
+      <EmailAction href={reviewUrl}>{resolvedActionLabel}</EmailAction>
       <EmailLinkFallback href={reviewUrl} />
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 
 ApprovalRequestEmail.PreviewProps = {
   requestTitle: 'Client travel reimbursement',
-  requestType: 'reimbursement',
+  requestType: 'reimbursement expense',
   requesterName: 'Jordan Lee',
   summary: 'Travel expenses for the client closing in Miami.',
   details: [

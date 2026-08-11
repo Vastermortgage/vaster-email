@@ -90,6 +90,16 @@ export function DangerCallout({ children }: { children: ReactNode }) {
   return <Callout className="border-[#fecaca] bg-[#fef2f2] text-[#991b1b]">{children}</Callout>
 }
 
+export function PendingCallout({ children }: { children: ReactNode }) {
+  return (
+    <Section className="mt-0 mb-[20px] rounded-[8px] border-0 border-l-[4px] border-solid border-[#f59e0b] bg-[#fffbeb] px-[16px] py-[12px]">
+      <Text className="m-0 text-[12px] leading-[16px] font-bold tracking-[0.08em] text-[#92400e] uppercase">
+        {children}
+      </Text>
+    </Section>
+  )
+}
+
 export function EmailDivider() {
   return <Hr className="mx-0 my-[28px] w-full border border-solid border-[#e5e7eb]" />
 }

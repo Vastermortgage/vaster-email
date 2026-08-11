@@ -7,7 +7,7 @@ import {
   EmailParagraph,
   SuccessCallout,
 } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 import type { EmailDetail } from '../types'
 
 export interface ProcessingCompletedEmailProps {
@@ -30,7 +30,7 @@ export function ProcessingCompletedEmail({
   actionLabel = 'View results',
 }: ProcessingCompletedEmailProps) {
   return (
-    <NotificationLayout preview={`${itemName} is ready in ${productName}`}>
+    <InternalNotificationLayout preview={`${itemName} is ready in ${productName}`}>
       <EmailEyebrow>Processing complete</EmailEyebrow>
       <EmailHeading>{itemName} is ready</EmailHeading>
       <SuccessCallout>Processing completed successfully.</SuccessCallout>
@@ -39,7 +39,7 @@ export function ProcessingCompletedEmail({
       <EmailDetails items={details} />
       <EmailAction href={actionUrl}>{actionLabel}</EmailAction>
       <EmailLinkFallback href={actionUrl} />
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

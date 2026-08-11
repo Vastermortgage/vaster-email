@@ -1,5 +1,5 @@
 import { EmailEyebrow, SuccessCallout } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 import { RequestDecisionContent } from '../components/request-decision-content'
 import type { RequestDecisionEmailProps } from '../types'
 
@@ -7,7 +7,7 @@ export type RequestApprovedEmailProps = RequestDecisionEmailProps
 
 export function RequestApprovedEmail(props: RequestApprovedEmailProps) {
   return (
-    <NotificationLayout preview={`${props.requestTitle} was approved`}>
+    <InternalNotificationLayout preview={`${props.requestTitle} was approved`}>
       <EmailEyebrow>Approved</EmailEyebrow>
       <RequestDecisionContent
         {...props}
@@ -16,7 +16,7 @@ export function RequestApprovedEmail(props: RequestApprovedEmailProps) {
       >
         <SuccessCallout>Your request has been approved.</SuccessCallout>
       </RequestDecisionContent>
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

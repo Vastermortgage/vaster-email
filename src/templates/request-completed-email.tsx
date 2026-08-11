@@ -1,5 +1,5 @@
 import { EmailEyebrow, InfoCallout } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 import { RequestDecisionContent } from '../components/request-decision-content'
 import type { RequestDecisionEmailProps } from '../types'
 
@@ -7,7 +7,7 @@ export type RequestCompletedEmailProps = RequestDecisionEmailProps
 
 export function RequestCompletedEmail(props: RequestCompletedEmailProps) {
   return (
-    <NotificationLayout preview={`${props.requestTitle} was completed`}>
+    <InternalNotificationLayout preview={`${props.requestTitle} was completed`}>
       <EmailEyebrow>Completed</EmailEyebrow>
       <RequestDecisionContent
         {...props}
@@ -16,7 +16,7 @@ export function RequestCompletedEmail(props: RequestCompletedEmailProps) {
       >
         <InfoCallout>Your request is complete.</InfoCallout>
       </RequestDecisionContent>
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

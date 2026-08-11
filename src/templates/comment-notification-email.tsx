@@ -6,7 +6,7 @@ import {
   EmailLinkFallback,
   EmailParagraph,
 } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 
 export interface CommentNotificationEmailProps {
   requestTitle: string
@@ -24,7 +24,7 @@ export function CommentNotificationEmail({
   requestUrl,
 }: CommentNotificationEmailProps) {
   return (
-    <NotificationLayout preview={`${authorName} commented on ${requestTitle}`}>
+    <InternalNotificationLayout preview={`${authorName} commented on ${requestTitle}`}>
       <EmailEyebrow>New comment</EmailEyebrow>
       <EmailHeading>New comment on {requestTitle}</EmailHeading>
       {recipientName && <EmailParagraph>Hi {recipientName},</EmailParagraph>}
@@ -36,7 +36,7 @@ export function CommentNotificationEmail({
       </EmailCard>
       <EmailAction href={requestUrl}>View conversation</EmailAction>
       <EmailLinkFallback href={requestUrl} />
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

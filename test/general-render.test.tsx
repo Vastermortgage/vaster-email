@@ -44,14 +44,20 @@ describe('general-purpose email renderers', () => {
   test('renders an approval request and sanitizes its subject', async () => {
     const message = await renderApprovalRequestEmail({
       requestTitle: 'Travel reimbursement\r\nBcc: attacker@example.com',
+      requestType: 'reimbursement expense',
       requesterName: 'Jordan Lee',
       details: [{ label: 'Amount', value: '$1,842.60 USD' }],
       reviewUrl: 'https://expenses.vaster.app/requests/test',
     })
 
-    expect(message.subject).toBe('Action required: Travel reimbursement Bcc: attacker@example.com')
+    expect(message.subject).toBe('Expense approval needed: Travel reimbursement Bcc: attacker@example.com')
     expect(message.subject).not.toContain('\n')
     expect(message.text).toContain('$1,842.60 USD')
+    expect(message.text).toContain('Pending expense approval')
+    expect(message.text).toContain('EXPENSE SUBMISSION NEEDS YOUR REVIEW')
+    expect(message.text).toContain('Review expense')
+    expect(message.html).not.toContain('<img')
+    expect(message.text).toContain('Automated notification from Vaster')
   })
 
   test('renders a comment notification', async () => {

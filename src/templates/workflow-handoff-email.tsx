@@ -7,7 +7,7 @@ import {
   EmailParagraph,
   InfoCallout,
 } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 import type { EmailDetail } from '../types'
 
 export interface WorkflowHandoffEmailProps {
@@ -30,7 +30,7 @@ export function WorkflowHandoffEmail({
   actionLabel = 'Open item',
 }: WorkflowHandoffEmailProps) {
   return (
-    <NotificationLayout preview={`${itemTitle} is ready for ${nextStep}`}>
+    <InternalNotificationLayout preview={`${itemTitle} is ready for ${nextStep}`}>
       <EmailEyebrow>Workflow update</EmailEyebrow>
       <EmailHeading>{itemTitle} is ready for {nextStep}</EmailHeading>
       <EmailParagraph>
@@ -40,7 +40,7 @@ export function WorkflowHandoffEmail({
       <EmailDetails items={details} />
       <EmailAction href={actionUrl}>{actionLabel}</EmailAction>
       <EmailLinkFallback href={actionUrl} />
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

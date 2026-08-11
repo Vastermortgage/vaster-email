@@ -6,7 +6,7 @@ import {
   EmailLinkFallback,
   EmailParagraph,
 } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 
 export interface RequestUpdatedEmailProps {
   requestTitle: string
@@ -26,7 +26,7 @@ export function RequestUpdatedEmail({
   requestUrl,
 }: RequestUpdatedEmailProps) {
   return (
-    <NotificationLayout preview={`${updatedByName} updated ${requestTitle}`}>
+    <InternalNotificationLayout preview={`${updatedByName} updated ${requestTitle}`}>
       <EmailEyebrow>Request updated</EmailEyebrow>
       <EmailHeading>{requestTitle} was updated</EmailHeading>
       {recipientName && <EmailParagraph>Hi {recipientName},</EmailParagraph>}
@@ -41,7 +41,7 @@ export function RequestUpdatedEmail({
       </EmailCard>
       <EmailAction href={requestUrl}>View request</EmailAction>
       <EmailLinkFallback href={requestUrl} />
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

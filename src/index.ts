@@ -9,9 +9,11 @@ export {
   EmailLinkFallback,
   EmailParagraph,
   InfoCallout,
+  PendingCallout,
   SuccessCallout,
 } from './components/email-content'
 export { NotificationLayout } from './components/notification-layout'
+export { InternalNotificationLayout } from './components/internal-notification-layout'
 export {
   ApplicationSharedEmail,
   type ApplicationSharedEmailProps,

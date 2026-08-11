@@ -9,7 +9,7 @@ import {
   EmailLinkFallback,
   EmailParagraph,
 } from '../components/email-content'
-import { NotificationLayout } from '../components/notification-layout'
+import { InternalNotificationLayout } from '../components/internal-notification-layout'
 
 export interface ProcessingFailedEmailProps {
   productName: string
@@ -31,7 +31,7 @@ export function ProcessingFailedEmail({
   supportEmail,
 }: ProcessingFailedEmailProps) {
   return (
-    <NotificationLayout preview={`${productName} could not process ${itemName}`}>
+    <InternalNotificationLayout preview={`${productName} could not process ${itemName}`}>
       <EmailEyebrow>Processing failed</EmailEyebrow>
       <EmailHeading>We couldn&apos;t process {itemName}</EmailHeading>
       {recipientName && <EmailParagraph>Hi {recipientName},</EmailParagraph>}
@@ -52,7 +52,7 @@ export function ProcessingFailedEmail({
           .
         </EmailParagraph>
       )}
-    </NotificationLayout>
+    </InternalNotificationLayout>
   )
 }
 

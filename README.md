@@ -41,6 +41,14 @@ bun run build
 
 Each template has a matching `render...Email` helper. Renderers return `{ subject, html, text }`, and subjects are stripped of newline characters before delivery.
 
+## Layouts
+
+Operational notifications use `InternalNotificationLayout`, a compact, image-free layout intended for internal apps and team workflows. This includes approvals, comments, request status changes, workflow handoffs, processing results, feedback reports, and new-application alerts.
+
+Account and customer-facing templates use the more prominent branded `NotificationLayout`. This includes magic links, invitations, welcome messages, and shared loan applications.
+
+Both layouts are exported for app-specific templates.
+
 ## Usage
 
 ```ts

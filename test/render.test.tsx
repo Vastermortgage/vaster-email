@@ -16,6 +16,7 @@ describe('email renderers', () => {
 
     expect(message.subject).toBe('Your Vaster sign-in link')
     expect(message.html).toContain('Sign in to Vaster')
+    expect(message.html).toContain('<img')
     expect(message.text).toContain('person@example.com')
   })
 

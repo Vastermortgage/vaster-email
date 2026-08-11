@@ -61,7 +61,12 @@ export function renderWelcomeEmail(props: WelcomeEmailProps) {
 }
 
 export function renderApprovalRequestEmail(props: ApprovalRequestEmailProps) {
-  return renderEmail(`Action required: ${props.requestTitle}`, <ApprovalRequestEmail {...props} />)
+  const isExpense = props.requestType?.toLowerCase().includes('expense') ?? false
+  const subject = isExpense
+    ? `Expense approval needed: ${props.requestTitle}`
+    : `Action required: ${props.requestTitle}`
+
+  return renderEmail(subject, <ApprovalRequestEmail {...props} />)
 }
 
 export function renderCommentNotificationEmail(props: CommentNotificationEmailProps) {
