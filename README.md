@@ -19,6 +19,22 @@ bun test
 bun run build
 ```
 
+## Publishing
+
+Releases use the **Publish npm package** GitHub Actions workflow on `main`.
+After committing and pushing a version bump, run:
+
+```bash
+gh workflow run publish.yml --ref main -f version=0.1.3
+```
+
+Replace the version with the exact value in `package.json`. The workflow installs
+the frozen lockfile, checks types, builds, and tests before publishing. npm trusts
+`Vastermortgage/vaster-email`, workflow `publish.yml`, environment `npm`; that
+environment permits deployments only from `main`. Authentication uses OIDC, so
+no npm access token or local npm login is needed. GitHub CLI access is still
+required to trigger the workflow, or use **Run workflow** in GitHub Actions.
+
 ## Template catalog
 
 | Template | Intended use |

@@ -2,6 +2,10 @@
   "name": "@vastermortgage/email",
   "version": "0.1.3",
   "description": "Shared transactional email templates for Vaster applications",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vastermortgage/vaster-email.git"
+  },
   "type": "module",
   "packageManager": "bun@1.4.1",
   "files": [
