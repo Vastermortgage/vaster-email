@@ -1,5 +1,6 @@
+import { EmailHead } from './email-head'
 import type { ReactNode } from 'react'
-import { Body, Container, Head, Html, Preview, Section, Tailwind, Text } from 'react-email'
+import { Body, Container, Html, Preview, Section, Tailwind, Text } from 'react-email'
 
 interface InternalNotificationLayoutProps {
   preview: string
@@ -13,19 +14,19 @@ interface InternalNotificationLayoutProps {
 export function InternalNotificationLayout({ preview, children }: InternalNotificationLayoutProps) {
   return (
     <Html>
-      <Head />
+      <EmailHead />
       <Preview>{preview}</Preview>
       <Tailwind>
-        <Body className="m-auto bg-white px-[20px] py-[32px] font-sans text-[#1f2937]">
+        <Body className="m-auto email-surface bg-white px-[20px] py-[32px] font-sans email-body text-[#1f2937]">
           <Container className="mx-auto max-w-[560px]">
-            <Section className="border-0 border-b border-solid border-[#e5e7eb] pb-[16px]">
-              <Text className="m-0 text-[12px] leading-[16px] font-bold tracking-[0.12em] text-[#002F87] uppercase">
+            <Section className="border-0 border-b border-solid email-border border-[#e5e7eb] pb-[16px]">
+              <Text className="m-0 text-[12px] leading-[16px] font-bold tracking-[0.12em] email-brand text-[#002F87] uppercase">
                 Vaster
               </Text>
             </Section>
             <Section className="py-[28px]">{children}</Section>
-            <Section className="border-0 border-t border-solid border-[#e5e7eb] pt-[16px]">
-              <Text className="m-0 text-[12px] leading-[18px] text-[#6b7280]">
+            <Section className="border-0 border-t border-solid email-border border-[#e5e7eb] pt-[16px]">
+              <Text className="m-0 text-[12px] leading-[18px] email-muted text-[#6b7280]">
                 Automated notification from Vaster
               </Text>
             </Section>

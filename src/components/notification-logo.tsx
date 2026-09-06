@@ -1,5 +1,15 @@
 import { Img } from 'react-email'
 
+// A light backing keeps the transparent blue wordmark legible even when a
+// client recolors the surrounding email. Gradients resist partial inversion.
+const logoStyle = {
+  backgroundColor: '#eef3ff',
+  backgroundImage: 'linear-gradient(#eef3ff, #eef3ff)',
+  borderRadius: '8px',
+  padding: '12px 16px',
+  color: '#002f87',
+}
+
 interface NotificationLogoProps {
   variant?: 'hero' | 'footer'
 }
@@ -13,6 +23,7 @@ export function NotificationLogo({ variant = 'hero' }: NotificationLogoProps = {
         height="15"
         alt="Vaster"
         className="my-0"
+        style={logoStyle}
       />
     )
   }
@@ -24,6 +35,7 @@ export function NotificationLogo({ variant = 'hero' }: NotificationLogoProps = {
       height="27"
       alt="Vaster"
       className="mx-auto my-0"
+      style={logoStyle}
     />
   )
 }

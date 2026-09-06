@@ -49,6 +49,14 @@ Account and customer-facing templates use the more prominent branded `Notificati
 
 Both layouts are exported for app-specific templates.
 
+Both layouts include light and dark color schemes, with explicit dark styles for
+clients supporting `prefers-color-scheme` and Outlook's `data-ogsc`/`data-ogsb`
+hooks. Content primitives include the required `email-*` classes; retain these
+when customizing markup so the dark palette can override inline light colors.
+Branded logos have a light backing to preserve contrast against dark surfaces.
+Email clients that force their own color inversion may still render differently;
+check light and dark previews in the delivery app before release.
+
 ## Usage
 
 ```ts

@@ -36,34 +36,34 @@ export function ApplicationStartedEmail(props: ApplicationStartedEmailProps) {
 
   return (
     <InternalNotificationLayout preview={previewText}>
-      <Text className="mt-0 mb-[8px] text-[12px] leading-[16px] font-semibold tracking-[0.08em] text-[#002F87] uppercase">
+      <Text className="mt-0 mb-[8px] text-[12px] leading-[16px] font-semibold tracking-[0.08em] email-brand text-[#002F87] uppercase">
         New application
       </Text>
 
-      <Heading className="mt-0 mb-[20px] p-0 text-left text-[28px] leading-[34px] font-bold text-black">
+      <Heading className="mt-0 mb-[20px] p-0 text-left text-[28px] leading-[34px] font-bold email-heading text-black">
         A new {loanPurpose} application just started
       </Heading>
 
-      <Text className="mt-0 mb-[24px] text-[15px] leading-[24px] text-[#1f2937]">
+      <Text className="mt-0 mb-[24px] text-[15px] leading-[24px] email-body text-[#1f2937]">
         The applicant has submitted their initial transaction terms. Open it below to review and
         continue the workflow.
       </Text>
 
-      <Section className="my-[24px] rounded-[12px] bg-[#f5f5f7] px-[24px] py-[24px]">
+      <Section className="my-[24px] rounded-[12px] email-card bg-[#f5f5f7] px-[24px] py-[24px]">
         <Row>
-          <Text className="mt-0 mb-[4px] text-[12px] leading-[16px] font-medium text-[#6b7280]">
+          <Text className="mt-0 mb-[4px] text-[12px] leading-[16px] font-medium email-muted text-[#6b7280]">
             Requested loan amount
           </Text>
-          <Text className="m-0 text-[28px] leading-[34px] font-bold text-[#002F87]">
+          <Text className="m-0 text-[28px] leading-[34px] font-bold email-brand text-[#002F87]">
             {USDollar.format(Number(loanAmount))}
           </Text>
         </Row>
-        <Hr className="mx-0 my-[16px] w-full border border-solid border-[#e5e7eb]" />
+        <Hr className="mx-0 my-[16px] w-full border border-solid email-border border-[#e5e7eb]" />
         <Row>
-          <Text className="mt-0 mb-[4px] text-[12px] leading-[16px] font-medium text-[#6b7280]">
+          <Text className="mt-0 mb-[4px] text-[12px] leading-[16px] font-medium email-muted text-[#6b7280]">
             Loan purpose
           </Text>
-          <Text className="m-0 text-[15px] leading-[22px] font-semibold text-black capitalize">
+          <Text className="m-0 text-[15px] leading-[22px] font-semibold email-heading text-black capitalize">
             {loanPurpose}
           </Text>
         </Row>
@@ -71,38 +71,38 @@ export function ApplicationStartedEmail(props: ApplicationStartedEmailProps) {
 
       <Section className="my-[24px] text-center">
         <Button
-          className="rounded-[8px] bg-[#002F87] px-[28px] py-[14px] text-center text-[14px] font-semibold text-white no-underline"
+          className="rounded-[8px] email-button bg-[#002F87] px-[28px] py-[14px] text-center text-[14px] font-semibold email-on-brand text-white no-underline"
           href={applicationUrl}
         >
           Open application
         </Button>
       </Section>
 
-      <Text className="mt-0 mb-[16px] text-[13px] leading-[22px] text-[#4b5563]">
+      <Text className="mt-0 mb-[16px] text-[13px] leading-[22px] email-secondary text-[#4b5563]">
         Or copy and paste this URL into your browser:
       </Text>
       <Link
         href={applicationUrl}
-        className="block text-[13px] leading-[20px] break-all text-[#002F87] no-underline"
+        className="block text-[13px] leading-[20px] break-all email-brand text-[#002F87] no-underline"
       >
         {applicationUrl}
       </Link>
 
-      <Hr className="mx-0 my-[28px] w-full border border-solid border-[#e5e7eb]" />
+      <Hr className="mx-0 my-[28px] w-full border border-solid email-border border-[#e5e7eb]" />
 
-      <Text className="mt-0 mb-[8px] text-[12px] leading-[16px] font-semibold tracking-[0.08em] text-[#6b7280] uppercase">
+      <Text className="mt-0 mb-[8px] text-[12px] leading-[16px] font-semibold tracking-[0.08em] email-muted text-[#6b7280] uppercase">
         Submission details
       </Text>
-      <Text className="mt-0 mb-[6px] text-[13px] leading-[20px] text-[#4b5563]">
-        Routed to <span className="font-semibold text-black">{loanOfficer?.name}</span>
+      <Text className="mt-0 mb-[6px] text-[13px] leading-[20px] email-secondary text-[#4b5563]">
+        Routed to <span className="font-semibold email-heading text-black">{loanOfficer?.name}</span>
       </Text>
       {inviteFromIp && (
-        <Text className="mt-0 mb-[6px] text-[13px] leading-[20px] text-[#4b5563]">
-          Submitted from IP <span className="font-mono text-black">{inviteFromIp}</span>
+        <Text className="mt-0 mb-[6px] text-[13px] leading-[20px] email-secondary text-[#4b5563]">
+          Submitted from IP <span className="font-mono email-heading text-black">{inviteFromIp}</span>
           {location && (
             <>
               {' '}
-              · <span className="text-black">{location}</span>
+              · <span className="email-heading text-black">{location}</span>
             </>
           )}
         </Text>

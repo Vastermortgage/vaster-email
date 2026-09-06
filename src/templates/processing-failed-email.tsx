@@ -46,7 +46,7 @@ export function ProcessingFailedEmail({
       {supportEmail && (
         <EmailParagraph>
           If the problem continues, contact{' '}
-          <Link href={`mailto:${supportEmail}`} className="text-[#002F87] no-underline">
+          <Link href={`mailto:${supportEmail}`} className="email-brand text-[#002F87] no-underline">
             {supportEmail}
           </Link>
           .

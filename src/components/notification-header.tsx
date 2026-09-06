@@ -7,7 +7,8 @@ export function NotificationHeader() {
     <Section
       className="rounded-[16px] py-[44px] text-center"
       style={{
-        background: 'linear-gradient(135deg, #DCE7FF 0%, #EFE9FF 50%, #DDF5EC 100%)',
+        backgroundColor: '#dce7ff',
+        backgroundImage: 'linear-gradient(135deg, #DCE7FF 0%, #EFE9FF 50%, #DDF5EC 100%)',
       }}
     >
       <NotificationLogo />
